@@ -8,5 +8,5 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /kamesan_me
 COPY Gemfile Gemfile.lock /kamesan_me/
 RUN bundle install
-COPY ..
+COPY . .
 CMD ["rails", "s"]
