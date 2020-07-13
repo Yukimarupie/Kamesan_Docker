@@ -20,7 +20,7 @@ deploy:
     docker build -t registry.heroku.com/$HEROKU_APP_NAME/web -f Dockerfile.prod .;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
     #herokuのコマンド。loginしないとだが、before_installのところに"$HEROKU_API_KEY"の環境変数が設定されている場合は、それを見て自動loginしてくれる
-    heroku run -app $HEROKU_APP_NAME rails db:migrate;
+    heroku run --app $HEROKU_APP_NAME rails db:migrate;
     
   #このdeployはmasterにmargeされた時だけ実行させたい。ので以下。
   on:
